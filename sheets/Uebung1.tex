@@ -1,0 +1,72 @@
+%% LyX 2.3.4.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,ngerman,journal=mamobx,manuscript=article,maxauthors=15,biblabel=plain]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in,headheight=0.5cm,headsep=0.5cm,footskip=0.5cm}
+\pagestyle{empty}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage[ngerman]{babel}
+\usepackage{babel}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section*{Übung 1}
+
+\subsection*{Zufallszahlen}
+
+Für die folgende Aufgabe verwenden Sie den Pseudo-Zufallszahlengenerator
+aus der Vorlesung (linearer Kongruenzgenerator). 
+\begin{align*}
+z_{i+1}=(az_{i}+b)\mod(m)
+\end{align*}
+Schreiben Sie eine Klasse, mit der Sie folgende Aufgaben erledigen
+können: 
+\begin{enumerate}
+\item Bestimmen Sie die Periodenlänge des Pseudo-Zufallszahlengenerators
+für Werte von $a$, $b$ und $m\in[0,100]$ . 
+\item Variieren Sie $a$, $b$ und $m$ in geeigneter Weise und bestimmen
+Sie erneut die Periodenlänge. Was beobachten Sie? Legen Sie optimale
+Werte für die Parameter als Standardwerte fest (Satz von Knuth). 
+\item Betrachten Sie die niedrigsten Bits der Pseudo-Zufallszahlen. Was
+beobachten Sie? 
+\item Normieren Sie die Zufallszahlen auf das Intervall $[0,1]$. Überlegen
+Sie, wie Sie die Korrelation zweier aufeinander folgender normierter
+Zufallszahlen mathematisch oder graphisch analysieren könnten und
+diskutieren Sie ihr Ergebnis/Analyse. 
+\end{enumerate}
+
+\subsection*{Monte-Carlo Integration}
+
+Nutzen Sie jetzt einen vorimplementierten Zufallszahlengenerator,
+zum Beispiel numpy.random.random.
+\begin{enumerate}
+\item Verwenden Sie Zufallszahlen um die Kreiszahl $\pi$ zu berechnen.
+Betrachten Sie ihre Analyse als Zufallsexperiment und schätzen Sie
+den Fehler ihrer Auswertung ab. Mit welcher maximalen Genauigkeit
+können Sie die Kreiszahl $\pi$ berechnen? 
+\item Betrachten Sie die Funktion $f(x,y)=x^{2}-y^{3}+xy^{2}$. Berechnen
+Sie das Volumen, das von dieser Funktion und der $xy$-Ebene für Koordinaten
+aus den Intervallen $x\in[-1,1]$, $y\in[-1,1]$ eingeschlossen wird.
+Stellen Sie das Ergebnis graphisch dar.
+\item Beurteilen Sie die Effizienz dieses Integrations-Verfahrens im Vergleich
+zu einer gleichmäßigen Rasterung des Raumes. Was sind die Vor- bzw.
+Nachteile der Monte-Carlo Integration (hochdimensionaler Phasenraum,
+periodische Funktionen, ...)? 
+\end{enumerate}
+Nützliche Funktionen:
+\begin{itemize}
+\item numpy.meshgrid, matplotlib.pyplot.plot\_surface
+\item numpy.random.random\_sample
+\end{itemize}
+
+\end{document}

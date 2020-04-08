@@ -1,0 +1,73 @@
+%% LyX 2.3.4.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,german,journal=mamobx,manuscript=article,maxauthors=15,biblabel=plain,pagestyle=plain]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in,headheight=0.5cm,headsep=0.5cm,footskip=0.5cm}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section*{Übung 0}
+
+Übungsleiter Monte-Carlo Simualtionen: Martin Wengenmayr (wengenmayr@ipfdd.de)
+
+Übungsleiter Molekulardynamik Simulationen: Markus Koch (koch-markus@ipfdd.de)
+
+Zugang Materialien (Name: wkmbp, PW: ss2020): \url{https://www.ipfdd.de/de/scmbp/soft-condensed-matter-and-biological-physics/lecture-materials/}
+
+\subsection*{Python und jupyter-notebook}
+
+Für diese Übung verwenden wir die Skriptsprache python. Zum einfacheren
+Gebrauch und für die unkomplizierte Darstellung über die Bildschirmfreigabe
+wird jupyter-notebook verwendet. Sollten Sie auf Ihrem Arbeitsgerät
+noch keine Python-Distribution und jupyter installiert haben, können
+Sie mit Anaconda schnell und einfach Ihre Arbeitsumgebung aufsetzen: 
+\begin{enumerate}
+\item Auf \url{www.anaconda.com/distribution/} finden Sie Anaconda zum
+herunterladen für Windows, macOS und Linux
+\item Installieren Sie die Python 3.7 Version nach den Anweisungen des Installers.
+\item Testen Sie ihre Installation, indem Sie in dem Ordner, in dem Sie
+die Übungen speichern wollen, in einer Shell, der Powershell, der
+ZSH, ... den Befehl jupyter-notebook(.exe unter Windows) eingeben. 
+\item In Ihrem Standardbrowser sollte sich die jupyter Home Page öffnen.
+Klicken Sie auf der rechten Seite auf New/Neu und wählen Sie Notebook:
+Python 3 aus.
+\end{enumerate}
+Lassen Sie sich ``Hallo Welt'' ausgeben.
+
+\subsection*{How-to-jupyter notebook Spielwiese}
+
+Schreiben Sie die Python Klasse ``calculator'', mit der Sie zwei
+Zahlen $a$ und $b$ addieren, substrahieren und multiplizieren können.
+Außerdem soll die Funktion $f(x)=a*x+b$ für $x\in\mathbb{N},$ $x<20$
+in eine Datei ausgeben werden, sowie eine solche Datei eingelesen
+und die Werte von a und b über einen Fit bestimmt werden können. Benutzen
+Sie die Bibliotheken numpy, scipy, matplotlib, pandas und os, und
+machen sich mit diesen ein wenig vertraut.
+
+Nützliche Funktionen:
+\begin{itemize}
+\item Am Anfang des notebooks (Interaktive Umgebung für numpy und matplotlib):\textbf{
+\%pylab notebook}
+\item matplotlib.pyplot.figure und matplotlib.pyplot.plot
+\item numpy.loadtxt oder pandas.read\_csv /read\_table
+\item numpy.savetxt oder pandas.DataFrame.to\_csv
+\item scipy.optimize.curve\_fit
+\end{itemize}
+
+\end{document}
