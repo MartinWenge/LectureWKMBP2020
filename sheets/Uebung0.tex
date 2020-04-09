@@ -24,11 +24,22 @@
 
 \section*{Übung 0}
 
-Übungsleiter Monte-Carlo Simualtionen: Martin Wengenmayr (wengenmayr@ipfdd.de)
+Diese Übungsblatt dient der Einführung in die von mir verwendete Software
+jupyter-notebook mit Python 3 als Skriptsprache. Jeder kann selbst
+entscheiden, welche Sprache und welches Tool er verwendet, aber für
+die Übung via Online-Meeting werde ich Python via jupyter-notebook
+zeigen. 
 
-Übungsleiter Molekulardynamik Simulationen: Markus Koch (koch-markus@ipfdd.de)
-
-Zugang Materialien (Name: wkmbp, PW: ss2020): \url{https://www.ipfdd.de/de/scmbp/soft-condensed-matter-and-biological-physics/lecture-materials/}
+\subsection*{Informationen}
+\begin{itemize}
+\item Übungsleiter Monte-Carlo Simulationen: Martin Wengenmayr (wengenmayr@ipfdd.de)
+\item Übungsleiter Molekulardynamik Simulationen: Markus Koch (koch-markus@ipfdd.de)
+\item Zugang Materialien (Name: wkmbp, PW: ss2020): \url{https://www.ipfdd.de/de/scmbp/soft-condensed-matter-and-biological-physics/lecture-materials/}
+\item Zoom Raum für die Übung am 09.04.2020: \url{https://us04web.zoom.us/j/983428740}
+\item Alternative: Jitsi-Raum für die Übung am 09.04.2020: \url{https://jitsi.tu-dresden.de/UebungNumerikWKMBP}
+\item Zur Nutzung von Jitsi gibt es eine ausführliche Seite der TU Dresden:
+\url{https://tu-dresden.de/tu-dresden/organisation/zentrale-universitaetsverwaltung/dezernat-3-zentrale-angelegenheiten/sg-3-5-informationssicherheit/tud-cert/videokonferenzservice}
+\end{itemize}
 
 \subsection*{Python und jupyter-notebook}
 
@@ -48,22 +59,30 @@ ZSH, ... den Befehl jupyter-notebook(.exe unter Windows) eingeben.
 Klicken Sie auf der rechten Seite auf New/Neu und wählen Sie Notebook:
 Python 3 aus.
 \end{enumerate}
-Lassen Sie sich ``Hallo Welt'' ausgeben.
+Lassen Sie sich ``Hallo Welt'' ausgeben. Eine detailierte Anleitung
+bis zu diesem Schritt finden sie hier: \url{https://realpython.com/jupyter-notebook-introduction/}
 
-\subsection*{How-to-jupyter notebook Spielwiese}
+Python ist eine objektorientierte Sprache. Darum werden zu erledigende
+Aufgaben in Klassen implementiert, die eigene Variablen (Member) und
+eigene (private) Funktionen enthalten. Dieses Prinzip wird in der
+folgenden Übung an einem einfachen Beispiel angewendet und wichtige
+Bibliotheken werden vorgestellt und benutzt.
 
-Schreiben Sie die Python Klasse ``calculator'', mit der Sie zwei
-Zahlen $a$ und $b$ addieren, substrahieren und multiplizieren können.
-Außerdem soll die Funktion $f(x)=a*x+b$ für $x\in\mathbb{N},$ $x<20$
-in eine Datei ausgeben werden, sowie eine solche Datei eingelesen
+\subsection*{Der Calculator}
+
+Schreiben Sie eine Python Klasse mit dem Name ``calculator'', mit
+der Sie zwei Zahlen $a$ und $b$ addieren, substrahieren und multiplizieren
+können. Außerdem soll die Funktion $f(x)=a*x+b$ für $x\in\mathbb{N},$
+$x<20$ in eine Datei ausgeben werden, sowie eine solche Datei eingelesen
 und die Werte von a und b über einen Fit bestimmt werden können. Benutzen
 Sie die Bibliotheken numpy, scipy, matplotlib, pandas und os, und
-machen sich mit diesen ein wenig vertraut.
+machen sich mit den unten aufgeführten Objekten und Funktionen vertraut.
 
-Nützliche Funktionen:
+Nützliche Funktionen und Objekte:
 \begin{itemize}
 \item Am Anfang des notebooks (Interaktive Umgebung für numpy und matplotlib):\textbf{
 \%pylab notebook}
+\item numpy.array, pandas.DataFrame
 \item matplotlib.pyplot.figure und matplotlib.pyplot.plot
 \item numpy.loadtxt oder pandas.read\_csv /read\_table
 \item numpy.savetxt oder pandas.DataFrame.to\_csv
