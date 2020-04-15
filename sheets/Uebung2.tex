@@ -1,0 +1,82 @@
+%% LyX 2.3.4.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,ngerman,journal=mamobx,manuscript=article,maxauthors=15,biblabel=plain]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in,headheight=0.5cm,headsep=0.5cm,footskip=0.5cm}
+\pagestyle{empty}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage[ngerman]{babel}
+\usepackage{babel}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section*{Übung 2}
+
+\subsection*{Das Ising Modell}
+
+Schreiben Sie ein Programm, dass zufällige Spin-Konformationen $\pm1$
+auf einem zweidmensionalen, periodischen Gitter der Größe $L\times L$
+erstellt. Auf diesem Gitter soll das Ising Modell mit dem Hamiltonian
+
+\[
+\mathcal{H}=-\frac{1}{2}\sum_{i,j}J_{\text{ij}}S_{\text{i}}S_{\text{j}}-B\sum_{i}S_{\text{\text{i}}}
+\]
+
+implementiert werden, wobei $i$ über alle Spins im System und $j$
+über die jeweiligen nächsten Nachbarn im System geht.
+\begin{enumerate}
+\item Schreiben Sie eine Funktion zur Berechnung der Magnetisierung $M.$
+\item Schreiben Sie eine Funktion zur Berechnung der Gesamtenergie $E$.
+Beachten Sie die periodische Randbedingungen.
+\end{enumerate}
+
+\subsubsection*{Simple Sampling}
+\begin{enumerate}
+\item Nutzen Sie Ihr Programm, um eine große Anzahl an unabhängigen Konformationen
+(etwa $10^{6}$) zu erzeugen. Wir betrachten die Fälle $B=0$ und
+$B=1$ auf einem Gitter $L=20$. Zur Vereinfachung setzen wir $J=1$.
+Die Temperatur sollte im Bereich $T\in[0.5,4]$ variiert werden, zum
+Beispiel $T=\{4,3,2.5,2.27,2.2,2.1,2,1.5,1,0.5\}$. 
+\item Ermitteln Sie $\left\langle M\right\rangle $ und $\left\langle E\right\rangle $
+als Funktion von $T$ aus diesen Konformationen und variieren Sie
+$T$ dahingehend, dass Sie den Datenbereich $T>T_{c}$ und $T\rightarrow0$
+abdecken. Tragen Sie ihre Ergebnisse für $B=0$ geeignet auf und vergleichen
+Sie mit den verschiedenen Ergebnissen aus der Vorlesung - soweit möglich.
+Was beobachten Sie? 
+\end{enumerate}
+
+\subsubsection*{Importance Sampling}
+\begin{enumerate}
+\item Erweitern Sie das Programm um den Metropolis Algorithmus.
+\item Wir betrachten zunächst den Fall $B=0$. Beginnen Sie mit einer zufällig
+erstellten Konformation und equilibrieren Sie das System mit Hilfe
+von Metropolis. Ermitteln Sie die Magnetisierung $M$ als Funktion
+der Simulationsdauer $t<500$ für 100 unabhängige Startkonformationen
+und tragen Sie $\left\langle M(t)\right\rangle $ gegen $t$ auf.
+Was beobachten Sie und welche Schlussfolgerungen ziehen Sie für die
+Equilibrierung des Systems?
+\item Ermitteln Sie $\left\langle M\right\rangle ,$ $\left\langle E\right\rangle $
+und $C$ (aus den Fluktuationen von $E$) als Funktion von $T$ wobei
+Sie nun für jede Temperatur zunächst equilibrieren und anschließend
+eine ausreichende Zahl an Konformationen (mindestens 100) bei gegebener
+Temperatur zur Auswertung ermitteln. Beginnen Sie mit hohen Temperaturen
+und kühlen Sie schrittweise weiter ab. Vergleichen Sie ihre Ergebnisse
+mit den Resultaten von Simple Sampling und erklären Sie die Unterschiede.
+\item Vergleichen Sie ebenfalls mit den Lösungen aus der Vorlesung. 
+\end{enumerate}
+
+\subsubsection*{Externes Magnetfeld $B\protect\neq0$}
+
+Führen Sie die Aufgaben 2. und 3. der letzten Aufgabe für $B=1$ durch
+und erläutern Sie Ihre Beobachtungen.
+\end{document}
