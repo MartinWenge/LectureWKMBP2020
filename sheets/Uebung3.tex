@@ -1,0 +1,66 @@
+%% LyX 2.3.4.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,german,journal=mamobx,manuscript=article,maxauthors=15,biblabel=plain]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in,headheight=0.5cm,headsep=0.5cm,footskip=0.5cm}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{babel}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section*{Übung 3}
+
+\subsection*{Diffusion und Zufallspfade (random walks)}
+
+Schreiben Sie ein Programm, mit dem Sie Zufallspfade in 2D erzeugen
+können. Erstellen Sie Funtionen für die Berechnung des End-zu-End
+Abstands $R_{\text{e}}$ und des Gyrationsradius $R_{\text{g}}$.
+Nehmen Sie an, dass sich der Läufer bei jedem Schritt um eine Einheit
+in genau eine der beiden Raumrichtungen bewegt.
+
+\subsubsection*{Simple Sampling mit Zufallspfaden}
+\begin{enumerate}
+\item Erzeugen Sie 1000 Zufallspfade aus 512 Schritten und bestimmen Sie
+die Häufigkeitsverteilung der Endpositionen der Zufallspfade. Vergleichen
+Sie die entstehende Verteilung mit den erwarteten Verteilungen in
+1D, sowie radial.
+\item Berechnen Sie die mittleren End-zu-End Abstände $R_{\text{e}}$ und
+Gyrationsradien $R_{\text{g}}$ einer Serie an Zufallspfaden verschiedener
+Länge (etwa $2^{4}$-$2^{11}$), um den Zusammenhang $R^{2}=b^{2}N$
+zu überprüfen. Welche Werte erhalten Sie jeweils für die Bindungslänge
+$b$?
+\end{enumerate}
+
+\subsubsection*{Importance Sampling mit Zufallspfaden}
+
+Erweitern Sie Ihr Programm um eine Funktion, die einen bestehenden
+Zufallspfad durch Verschiebung einzelner Schritte/Knoten verändert
+und dabei einen neuen, zulässigen Zufallspfad erzeugt. Dabei darf
+die Länge des Pfades nicht verändert werden, weder die Anzahl der
+Schritte, noch die Länge eines Schrittes.
+\begin{enumerate}
+\item Bestimmen Sie die Autokorrelationsfunktion des End-zu-End Vektors
+\begin{align*}
+c(\Delta t)=\left\langle \overrightarrow{R_{\text{e}}}(t_{0})\cdot\overrightarrow{R_{\text{e}}}(t_{0}+\Delta t)\right\rangle /\left\langle \vec{R_{\text{e}}^{2}}\right\rangle 
+\end{align*}
+einer Kette aus 64 Bindungsvektoren, die für eine große Zahl an verschiedenen
+Systemen ($\ge1000$) als Funktion des Zeitintervalls $\Delta t$
+gemittelt wird. Wie groß ist die Relaxationszeit und für welche $\Delta t$
+erhält man statistisch unkorrelierte Konformationen?
+\item Wiederholen Sie die Berechnungen von $R_{\text{e}}$ und $R_{\text{g}}$
+und vergleichen Sie die Effizienz.
+\end{enumerate}
+Zusatz: Implementieren Sie eine Kontroll-Funktion, die den aktuellen
+Pfad auf die Einhaltung der Regeln des Zufallspfades überprüft (sanity
+check).
+\end{document}
