@@ -1,0 +1,134 @@
+%% LyX 2.3.4.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,german,journal=mamobx,manuscript=article,maxauthors=15,biblabel=plain]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in,headheight=0.5cm,headsep=0.5cm,footskip=0.5cm}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{babel}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section*{Übung 4}
+
+\subsubsection*{Das Bindungs-Fluktuations Modell (Bond Fluctuation Model)}
+
+Mit diesem Übungsblatt verwenden Sie zum ersten Mal das sogenannte
+``Bindungs-Fluktuations-Modell'' (BFM), das in der Polymerphysik
+häufig zur Simulation von Schmelzen und Lösungen verwendet wird. Die
+tatsächliche Struktur (Valenzwinkel, Rotationsbarrieren) eines amorphen
+Polymers kann für eine ausreichende Zahl an Monomeren vernachlässigt
+werden, so dass sich die statistischen Segmente bis auf das ausgeschlossene
+Volumen hin frei zueinander einstellen können:
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{Abb_3_1} 
+\par\end{center}
+
+Die Bindungsvektoren werden auf die Menge $B$
+
+\[
+B=P\pm\left(\begin{array}{c}
+2\\
+0\\
+0
+\end{array}\right)\bigcup P\pm\left(\begin{array}{c}
+2\\
+1\\
+0
+\end{array}\right)\bigcup P\pm\left(\begin{array}{c}
+2\\
+1\\
+1
+\end{array}\right)\bigcup P\pm\left(\begin{array}{c}
+2\\
+2\\
+1
+\end{array}\right)\bigcup P\pm\left(\begin{array}{c}
+3\\
+0\\
+0
+\end{array}\right)\bigcup P\pm\left(\begin{array}{c}
+3\\
+1\\
+0
+\end{array}\right)
+\]
+
+aus 108 Bindungsvektoren zwischen den Monomeren eingeschränkt, um
+eine Überkreuzung der Ketten bei einer Bewegung eines Monomers zu
+verhindern. $P\pm$ bezeichnet dabei die Menge aller möglichen Permutationen
+und Vorzeichenkombinationen der Vektorkoordinaten. Auf diese Weise
+sind 87 verschiedene Winkeleinstellungen zwischen den Segmenten und
+fünf Bindungslängen ($2$, $\sqrt{5}$, $\sqrt{6}$, 3 und $\sqrt{10}$)
+möglich. Die BFM ist damit weitaus flexibler als das bisher eingesetzte
+Gittermodell (Übung 3) zur Simulation von Makromolekülen.
+
+Die Bewegung eines Monomers wird folgendermaßen realisiert: Zunächst
+werden statistisch ein Monomer und eine der 6 Bewegungsrichtungen
+ausgewählt. Anschließend wird überprüft, ob für die neue Position
+des Monomers die Bindungsvektoren zu den Kettennachbarn in $B$ enthalten
+sind und ob die 4 Gitterplätze in Bewegungsrichtung noch frei sind
+(im Falle energetischer Wechselwirkungen würde noch der Metropolis-Algorithmus
+angewandt). Nur wenn diese Kriterien alle erfüllt sind, wird die Bewegung
+durchgeführt. Obige Abbildung zeigt einen Sprungversuch in positive
+y-Richtung, bei dem alle Voraussetzungen erfüllt sind.
+
+\newpage{}
+
+\subsubsection*{Umsetzung des Bindungs-Fluktuations Modell}
+
+Zur Implementierung des BFM in einer objektorientierten Programmiersprache
+erstellen wir zunächst einzelne Programmteile, mit denen die einzelenen
+Bestandteile des Modells umgesetzt werden. Dazu nutzen wir eine Klasse,
+die die Positionen der Monomere, ihre Bindungen und ihre Attribute
+bereitstellt. Das Bindungsvektorset wird ebenfalls als separate Klasse
+implementiert. Das ausgeschlossene Volumen, also das Verbot, dass
+ein Gitterplatz von mehreren BFM Einheiten belegt werden kann, wird
+über ein Gitter und entsprechende Zugriffsfunktionen darauf in einer
+eigenen Klasse angelegt. Mit diesen drei Programmbausteinen wird ein
+Simulationsobjekt erstellt, mit dem eine Monte-Carlo Bewegung auf
+Richtigkeit überprüft und gegebenenfalls ausgeführt wird. Eine mögliche
+Realisierung finden Sie in der Datein bfm.py als Python Modul.
+\begin{enumerate}
+\item Nutzen Sie das gegebene Programm oder eines Ihrer Wahl zur Erstellung
+einer einzelnen Polymerkette mit $N=32$ Monomeren.
+\item Implementieren Sie die Berechnung des End-zu-End Abstands $R_{\text{ee}}$
+und des Gyrationsradius $R_{\text{g}}$.
+\item Führen Sie eine große Anzahl an Simulationen durch ($\approx1000$)
+und berechnen Sie damit die Autokorrelationsfunktion des End-zu-End
+Vektors $\vec{R}_{\text{ee}}$.
+\end{enumerate}
+
+\subsubsection*{Polymer in eingeschränkter Geometrie}
+\begin{enumerate}
+\item Erstellen Sie mit einem geeigneten Programm eine einzelne Polymerkette
+mit und ohne ausgeschlossenem Volumem mit $N=64$ in einem Spalt der
+Breite $D_{S}$ und einer Pore mit quadratischem Querschnitt der Fläche
+$D_{P}^{2}$ mit verschiedenen Abmessungen. Beobachten Sie den Übergang
+von ungestörten Konformationen zu quasi zwei- bzw. ein-dimensionalen
+Konformationen anhand der Veränderung des End-zu-End Abstandes und
+des Gyrationsradius. Nutzen Sie dafür die Analyzer aus der letzten
+Übung und den UpdaterAddLinearChains aus dem LeMonADE-repository.
+\item Erstellen Sie einen Analyzer zur Berechnung der Paarkorrelationsfunktion
+$g(r)$ (radiale Verteilungsfunktion):
+\[
+g(r)=\frac{V}{N^{2}}\langle\sum_{j\neq i}^{N}\delta(r-|R_{\text{i}}-R_{\text{j}}|)\rangle
+\]
+mit der Teilchenzahl $N$ und den Monomerpositionen $\vec{R}_{i,j}$.
+Welche Informationen können Sie $g(r)$ entnehmen? Welche Größen lassen
+sich daraus ableiten?
+\end{enumerate}
+
+\end{document}
