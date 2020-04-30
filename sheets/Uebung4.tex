@@ -100,7 +100,7 @@ ein Gitterplatz von mehreren BFM Einheiten belegt werden kann, wird
 eigenen Klasse angelegt. Mit diesen drei Programmbausteinen wird ein
 Simulationsobjekt erstellt, mit dem eine Monte-Carlo Bewegung auf
 Richtigkeit überprüft und gegebenenfalls ausgeführt wird. Eine mögliche
-Realisierung finden Sie in der Datein bfm.py als Python Modul.
+Realisierung finden Sie in der Datei bfm\_full.py als Python Modul.
 \begin{enumerate}
 \item Nutzen Sie das gegebene Programm oder eines Ihrer Wahl zur Erstellung
 einer einzelnen Polymerkette mit $N=32$ Monomeren.
@@ -116,17 +116,15 @@ Vektors $\vec{R}_{\text{ee}}$.
 \item Erstellen Sie mit einem geeigneten Programm eine einzelne Polymerkette
 mit und ohne ausgeschlossenem Volumem mit $N=64$ in einem Spalt der
 Breite $D_{S}$ und einer Pore mit quadratischem Querschnitt der Fläche
-$D_{P}^{2}$ mit verschiedenen Abmessungen. Beobachten Sie den Übergang
-von ungestörten Konformationen zu quasi zwei- bzw. ein-dimensionalen
-Konformationen anhand der Veränderung des End-zu-End Abstandes und
-des Gyrationsradius. Nutzen Sie dafür die Analyzer aus der letzten
-Übung und den UpdaterAddLinearChains aus dem LeMonADE-repository.
-\item Erstellen Sie einen Analyzer zur Berechnung der Paarkorrelationsfunktion
-$g(r)$ (radiale Verteilungsfunktion):
+$D_{P}^{2}$ mit verschiedenen Abmessungen ($64\ge b_{\text{xy}}\ge4$).
+Beobachten Sie den Übergang von ungestörten Konformationen zu quasi
+zwei- bzw. ein-dimensionalen Konformationen anhand der Veränderung
+des End-zu-End Abstandes und des Gyrationsradius.
+\item Berechnen sie die Paarkorrelationsfunktion $g(r)$ (radiale Verteilungsfunktion):
 \[
 g(r)=\frac{V}{N^{2}}\langle\sum_{j\neq i}^{N}\delta(r-|R_{\text{i}}-R_{\text{j}}|)\rangle
 \]
-mit der Teilchenzahl $N$ und den Monomerpositionen $\vec{R}_{i,j}$.
+mit der Teilchenzahl $N$ und den Monomerpositionen $\vec{R}_{\text{i,j}}$.
 Welche Informationen können Sie $g(r)$ entnehmen? Welche Größen lassen
 sich daraus ableiten?
 \end{enumerate}
