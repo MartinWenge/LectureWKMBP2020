@@ -22,25 +22,31 @@
 
 \subsubsection*{Adsorption von Monomeren}
 
-Wir betrachten ein System mit nicht wechselwirkenden Teilchen (Monomere).
+Wir betrachten ein System mit Teilchen (Monomere) ohne paarweise Wechselwirkungen.
 Die Simulationsbox sei in zwei Raumrichtungen periodisch, in einer
-nicht-periodisch. diese Wand soll eine attraktive Wechselwirkung mit
-den Monomeren haben, wobei die Wechselwirkungsstärke durch die Energie
-pro Monomer-Wand ($z=0,$Boxgröße$-1$) Kontakt $\epsilon$ gegeben
+nicht-periodisch. Diese Wand hat eine attraktive Wechselwirkung mit
+den Monomeren, wobei die Wechselwirkungsstärke durch die Energie pro
+Monomer-Wand ($z=0,$$z=($Boxgröße$-2)$ ) Kontakt $\delta$ gegeben
 ist.
 \begin{enumerate}
-\item Erstellen Sie eine Startkonformation mit 512 einzelnen Monomeren in
-einer kubischen Box mit $64^{3}$ Gitterplätzen.
+\item Erstellen Sie eine Startkonformation mit 256 einzelnen Monomeren in
+einer kubischen Box mit $32^{3}$ Gitterplätzen.
 \item Implementieren Sie absorbierenden Wände um diese Monomere an zwei
-gegenüberliegenden Wänden mit verschiedenen Adsorptionsenergien $\epsilon[0,10]$
-zu simulieren. Messen Sie die mittlere Anzahl adsorbierter Monomere.
-\item Tragen Sie die Adsorptionsisotherme $N_{ads}/N(\epsilon)$ auf und
-vergleichen Sie mit der analytischen Vorhersage der Boltzmann Statistik
+gegenüberliegenden Wänden mit verschiedenen Adsorptionsenergien $\delta\in[0,10]$
+zu simulieren. Nutzen Sie dazu den Metropolis Algorithmus. Messen
+Sie die Anzahl adsorbierter Monomere $N_{\text{ads}}$.
+\item Tragen Sie die Adsorptionsisotherme $N_{\text{ads}}/N(\delta)$ auf
+und vergleichen Sie mit der analytischen Vorhersage der Boltzmann
+Statistik: 
 \[
-\frac{N_{ads}}{N}(\epsilon)=\frac{\exp(\epsilon/k_{\text{B}}T)}{\exp(\epsilon/k_{\text{B}}T)+V_{0}/V_{abs}}
+\frac{N_{\text{ads}}}{N}(\delta)=\frac{\exp(\delta/k_{\text{B}}T)}{\exp(\delta/k_{\text{B}}T)+V_{0}/V_{\text{ads}}}
 \]
+ Dabei ist $N$ die Gesamtanzahl der Teilchen in der Box mit dem Gesamtvolumen
+$V_{0}$. $V_{\text{ads}}$ bezeichnet das Volumen, das für die Adsorption
+zur Verfügung steht.
 \item Leiten Sie diesen Ausdruck her. Nehmen Sie als Ausgangspunkt die Entropie
-des idealen Gases $S=S(T)-k_{\text{B}}N\ln(V/v_{0}N)$. 
+des idealen Gases $S=S(T)-k_{\text{B}}N\ln(V/v_{0}N)$. Hier $V$
+ist das Volumen des Systems und $v_{0}$ ist das Volumen eines Monomeres.
 \end{enumerate}
 
 \subsection*{Adsorption von Polymerketten}
@@ -50,16 +56,16 @@ Simulationsbox mit $64^{3}$ Gitterplätzen mit zwei periodischen und
 einer nicht-periodischen Raumrichtung. Die Polymerkette soll mit ausgeschlossenem
 Volumen simuliert werden.
 \begin{enumerate}
-\item Erstellen Sie eine Einzelkette mit Kettenlänge $N=64$ und geeigneten
-Boxgrößen für Simulationen mit absorbierenden Wänden.
-\item Bestimmen Sie die Adsorptionsenergie für die Kettenlänge $N=64$ für
-$\epsilon[0,2]$ und erläutern Sie Ihre Beobachtungen. Vergleichen
-Sie (qualitativ) mit dem idealen Gas.
-\item Simulieren Sie Ketten unterschiedlicher Länge in schwacher ($\epsilon<1$
-$k_{\text{B}}T$) und starker Adsorption ($\epsilon>1k_{\text{B}}T$)
-und bestimmen Sie einerseits das Verhalten der Ausdehnung $R_{g}\sim N^{x}$
-parallel und senkrecht zur Wand. Vergleichen Sie mit den theoretischen
-Vorhersagen.
+\item Erstellen Sie eine Einzelkette mit Kettenlänge $N=64$ und bestimmen
+Sie die Adsorptionsenergie für $\delta\in[0.2,2]$ und erläutern Sie
+Ihre Beobachtungen. Vergleichen Sie (qualitativ) mit dem idealen Gas.
+\item Simulieren Sie einzelne Ketten unterschiedlicher Länge ($N\in[16,32,64,128]$)
+und berechnen Sie den Gyrationsradius. 
+\item mit einer Volumenkonzentration von $\phi=0.1$ in schwacher ($\delta<1$
+$k_{\text{B}}T$) und starker Adsorption ($\delta>1k_{\text{B}}T$).
+Berechnen Sie das Dichteprofil zwischen den nicht-periodischen Wänden
+$\phi(z)$ und vergleichen Sie mit dem Modell des de Gennes self similar
+carpet.
 \end{enumerate}
 
 \end{document}
