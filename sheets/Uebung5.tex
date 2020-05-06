@@ -26,11 +26,11 @@ Wir betrachten ein System mit Teilchen (Monomere) ohne paarweise Wechselwirkunge
 Die Simulationsbox sei in zwei Raumrichtungen periodisch, in einer
 nicht-periodisch. Diese Wand hat eine attraktive Wechselwirkung mit
 den Monomeren, wobei die Wechselwirkungsstärke durch die Energie pro
-Monomer-Wand ($z=0,$$z=($Boxgröße$-2)$ ) Kontakt $\delta$ gegeben
-ist.
+Monomer-Wand-Kontakt $\delta$ gegeben ist. Sie können das Modul lattice\_gas.py
+benutzen.
 \begin{enumerate}
-\item Erstellen Sie eine Startkonformation mit 256 einzelnen Monomeren in
-einer kubischen Box mit $32^{3}$ Gitterplätzen.
+\item Erstellen Sie eine Startkonformation mit $256$ einzelnen Monomeren
+in einer kubischen Box mit $32^{3}$ Gitterplätzen.
 \item Implementieren Sie absorbierenden Wände um diese Monomere an zwei
 gegenüberliegenden Wänden mit verschiedenen Adsorptionsenergien $\delta\in[0,10]$
 zu simulieren. Nutzen Sie dazu den Metropolis Algorithmus. Messen
@@ -41,31 +41,35 @@ Statistik:
 \[
 \frac{N_{\text{ads}}}{N}(\delta)=\frac{\exp(\delta/k_{\text{B}}T)}{\exp(\delta/k_{\text{B}}T)+V_{0}/V_{\text{ads}}}
 \]
- Dabei ist $N$ die Gesamtanzahl der Teilchen in der Box mit dem Gesamtvolumen
-$V_{0}$. $V_{\text{ads}}$ bezeichnet das Volumen, das für die Adsorption
+Dabei ist $N$ die Gesamtanzahl der Teilchen in der Box mit dem Gesamtvolumen
+$V$. $V_{\text{ads}}$ bezeichnet das Volumen, das für die Adsorption
+zur Verfügung steht, $V_{0}$ das Volumen, das nicht für die Adsorption
 zur Verfügung steht.
 \item Leiten Sie diesen Ausdruck her. Nehmen Sie als Ausgangspunkt die Entropie
-des idealen Gases $S=S(T)-k_{\text{B}}N\ln(V/v_{0}N)$. Hier $V$
-ist das Volumen des Systems und $v_{0}$ ist das Volumen eines Monomeres.
+des idealen Gases $S=S(T)-k_{\text{B}}N\ln(V/v_{0}N)$, wobei $v_{0}$
+das Eigenvolumen eines Monomeres ist.
 \end{enumerate}
 
 \subsection*{Adsorption von Polymerketten}
 
-Wir betrachten ein BFM-Polymer (siehe Übung 4) in einer kubischen
-Simulationsbox mit $64^{3}$ Gitterplätzen mit zwei periodischen und
-einer nicht-periodischen Raumrichtung. Die Polymerkette soll mit ausgeschlossenem
-Volumen simuliert werden.
+Wir betrachten ein BFM-Polymer (siehe Übung 4) in einer Simulationsbox
+mit zwei periodischen und einer nicht-periodischen Raumrichtung (z-Richtung).
+Die Polymerkette soll mit ausgeschlossenem Volumen simuliert werden.
+Sie können das modul bfm\_simulator.py benutzen.
 \begin{enumerate}
-\item Erstellen Sie eine Einzelkette mit Kettenlänge $N=64$ und bestimmen
-Sie die Adsorptionsenergie für $\delta\in[0.2,2]$ und erläutern Sie
-Ihre Beobachtungen. Vergleichen Sie (qualitativ) mit dem idealen Gas.
-\item Simulieren Sie einzelne Ketten unterschiedlicher Länge ($N\in[16,32,64,128]$)
-und berechnen Sie den Gyrationsradius. 
-\item mit einer Volumenkonzentration von $\phi=0.1$ in schwacher ($\delta<1$
-$k_{\text{B}}T$) und starker Adsorption ($\delta>1k_{\text{B}}T$).
+\item Erstellen Sie eine Einzelkette mit Kettenlänge $N=32$ in einer kubischen
+Box mit $64^{3}$ Gitterplätzen in starker Adsorption ($\delta=10\;k_{\text{B}}T$).
+Zeigen Sie, dass für $N_{\text{ads}}/N\approx1$ die Kette einem zweidimensionalen
+self avoiding walk entspricht ($R_{\text{g,z}}\approx0$).
+\item Simulieren Sie eine Lösung linearer Ketten der Länge $N=128$ in einer
+Box mit den Abmessungen $[32,32,64]$ und mit einer Volumenkonzentration
+von $\phi=0.1$ in moderater Adsorption ($\delta=1$ $k_{\text{B}}T$).
 Berechnen Sie das Dichteprofil zwischen den nicht-periodischen Wänden
 $\phi(z)$ und vergleichen Sie mit dem Modell des de Gennes self similar
 carpet.
+\item \textbf{Extra:} Zeigen Sie für die Einzelkette in starker Adsorption,
+dass der Gyrationsradius in $xy$-Richtung wie ein 2D Self-Avoiding
+Walk skaliert ($R_{\text{g 2D}}^{2}\sim N^{3/4}$)
 \end{enumerate}
 
 \end{document}

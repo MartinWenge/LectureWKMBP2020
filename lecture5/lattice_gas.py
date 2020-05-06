@@ -6,7 +6,6 @@ modifed BFM Simulator for noninteracting particles
 ''' 
 import numpy as np
 import matplotlib.pyplot as plt
-import random
 
 from mpl_toolkits.mplot3d import Axes3D
 from scipy.optimize import curve_fit
@@ -132,7 +131,7 @@ class LatticeGasSimulator:
                 
         # perform metropolis algorithm
         if ( totalProb < 1.0 ):
-            if ( random.random() > totalProb ):
+            if ( np.random.random() > totalProb ):
                 return False
         
         # if still here, all checks have been passed
@@ -149,8 +148,8 @@ class LatticeGasSimulator:
         num_steps = len(self.moves)
         for t in range(time):
             for n in range(mol_size):
-                randomIdx = random.randint(mol_size)
-                randomDir = random.randint(num_steps)
+                randomIdx = np.random.randint(mol_size)
+                randomDir = np.random.randint(num_steps)
                 if self.checkMove(randomIdx,randomDir):
                     self.applyMove(randomIdx,randomDir)
                     counter += 1
