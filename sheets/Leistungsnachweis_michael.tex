@@ -1,0 +1,60 @@
+%% LyX 2.3.4.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,german,journal=mamobx,manuscript=article,maxauthors=15,biblabel=plain]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in,headheight=0.5cm,headsep=0.5cm,footskip=0.5cm}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{babel}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\section*{Leistungsnachweis 1: }
+
+\subsection*{Monte-Carlo Simulationen}
+
+Nutzen Sie die Programme der voherigen Übungen um die folgenden Aufgaben
+innerhalb von 90 Minuten zu lösen. Für die Bewertung stellen Sie ein
+\textit{kurzes} Protokoll mit dem groben Arbeitsablauf und den Antworten
+zu den Fragen zusammen. Binden Sie ihre Simulationsergebnisse entsprechend
+als Bilder, Diagramme oder Tabellen ein. Das Protokoll und der Quellcode
+ist am Ende der Einheit per mail abzugeben.
+
+\subsubsection*{Self Avoiding Walk}
+\begin{enumerate}
+\item Erschaffen Sie mit einem geeigneten Programm eine große Anzahl an
+selbstvermeidenden Zufallspfaden (SAW) für mindestens 6 verschiedene
+Schrittanzahlen $N\in[10-400]$.
+\item Berechnen Sie End-zu-End Abstände und Gyrationsradien der SAW und
+vergleichen Sie mit theoretischen Vorhersagen. Schätzen Sie die fraktale
+Dimension der SAW aus den Daten zu den Gyrationsradien ab. Welches
+Polymermodell zeigt die gleiche fraktale Dimension?
+\item Berechnen Sie die Streufunktion $S(q)$ für einen SAW der Länge $N=32$
+um die in Aufgabe 2 getroffenen Aussagen zur fraktalen Dimension mit
+einer zweiten Methode zu verifizieren. Vergleichen Sie die Ergebnisse
+mit der vorherigen Abschätzung und diskutieren Sie mögliche Vor- und
+Nachteile beider Methoden.
+\end{enumerate}
+
+\subsubsection*{Polymerbürsten}
+\begin{enumerate}
+\item Nutzen Sie die das BFM zur Erstellung von Polymerketten mit ausgeschlossenem
+Volumen, deren erstes Monomer an der (nicht periodischen) Grundfläche
+der Simulationsbox verankert ist, als Modellsystem für eine Polymerbürste.
+Erzeugen Sie Systeme mit $5x5$ Ketten aus 32 Monomeren bei Ankerpunktdichten
+$\sigma$ 1/9, 1/25, 1/64 sowie eine einzelne geankerte Kette.
+\item Equilibrieren Sie die Bürsten und bestimmen Sie die mittlere Höhe
+$H$. Vergleichen Sie die Abhängigkeit der Höhe $H$ von der Ankerpunktdichte
+$\sigma$ mit der theoretischen Vorhersage.
+\end{enumerate}
+
+\end{document}
